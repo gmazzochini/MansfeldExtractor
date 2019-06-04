@@ -1,7 +1,6 @@
 #species = character vector with species names
 #file.name = path where to write the file and the name of the file
 
-#RUN
 mansfeld_extractor<-function(species,file.name=""){
   if("rvest" %in% rownames(installed.packages()) == FALSE) {install.packages("rvest")}
   require(rvest)
@@ -84,7 +83,6 @@ mansfeld_extractor<-function(species,file.name=""){
   }
   return(database)
 }
-#END RUN
 
 #### Example ####
 

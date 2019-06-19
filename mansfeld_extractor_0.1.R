@@ -42,11 +42,8 @@ mansfeld_extractor<-function(species,file.name=""){
           
           references <- webpage2 %>% html_nodes("li")
           references <- gsub("\n","", as.character(references[!grepl("text-decoration:none",references)]))
-          if(length(references)==0) {
-            references2[j] <- "No information."
-          }
           
-          else references2[j] <- paste(substring(references,5,sapply(references,nchar)-5) , collapse= "; ")
+          references2[j] <- ifelse(length(references)==0, "No information.", paste(substring(references,5,sapply(references,nchar)-5) , collapse= "; "))  
         }
       }
       out <- paste(use2, collapse="; ")
